@@ -1,0 +1,300 @@
+/* ═══════════════════════════════════════════════
+   HOME PAGE — Dark Brown · Navy · Gold Theme
+   ═══════════════════════════════════════════════ */
+
+/* ── Promotional Carousel ── */
+.carousel-wrap {
+  position: relative;
+  border-radius: 22px;
+  overflow: hidden;
+  margin-bottom: 44px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.65);
+  border: 1px solid rgba(212,175,55,0.2);
+}
+.carousel-track { display:flex; transition:transform .7s cubic-bezier(.4,0,.2,1); }
+.cslide {
+  min-width: 100%; height: 440px; position: relative;
+  display: flex; align-items: flex-end; overflow: hidden; flex-shrink: 0;
+}
+.cslide-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transition: transform .9s cubic-bezier(0.4,0,0.2,1);
+}
+.carousel-wrap:hover .cslide-bg { transform: scale(1.04); }
+.cslide-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(8,14,28,0.96) 0%, rgba(8,14,28,0.45) 50%, transparent 100%);
+}
+.cslide-cnt {
+  position: relative; z-index: 2;
+  padding: 52px 60px; max-width: 640px;
+}
+.cslide-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(212,175,55,0.12); backdrop-filter: blur(10px);
+  border: 1px solid rgba(212,175,55,0.35); color: #d4af37;
+  font-size: .68rem; font-weight: 700; padding: 6px 16px;
+  border-radius: 20px; text-transform: uppercase; letter-spacing: 1.2px;
+  margin-bottom: 16px;
+}
+.cslide-cnt h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem; font-weight: 800;
+  color: #fff; line-height: 1.1;
+  text-shadow: 0 4px 24px rgba(0,0,0,0.6);
+  margin-bottom: 14px;
+}
+.cslide-cnt h2 em {
+  font-style: normal; color: #d4af37;
+  text-shadow: 0 0 24px rgba(212,175,55,0.45);
+}
+.cslide-cnt p {
+  color: rgba(255,255,255,0.65);
+  font-size: .95rem; margin-bottom: 26px;
+  line-height: 1.75; font-weight: 300;
+}
+.cslide-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  color: #080e1c; padding: 14px 36px; border-radius: 11px;
+  font-size: .88rem; font-weight: 800;
+  border: none; cursor: pointer;
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+  box-shadow: 0 10px 28px rgba(212,175,55,0.3);
+  position: relative; overflow: hidden;
+}
+.cslide-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent 60%);
+  pointer-events: none;
+}
+.cslide-cta:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(212,175,55,0.5); filter: brightness(1.08); }
+
+.cslide-badge {
+  position: absolute; top: 38px; right: 38px; z-index: 3;
+  background: rgba(15,23,42,0.7); backdrop-filter: blur(16px);
+  border: 1px solid rgba(212,175,55,0.35); border-radius: 50%;
+  width: 118px; height: 118px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: #d4af37; box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+.cslide-badge .bpct {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem; font-weight: 800; line-height: 1;
+}
+.cslide-badge .boff {
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: 1px; text-transform: uppercase; opacity: 0.8;
+}
+
+/* Dots */
+.carousel-dots {
+  position: absolute; bottom: 22px; left: 50%; transform: translateX(-50%);
+  display: flex; gap: 10px; z-index: 10;
+}
+.dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  background: rgba(255,255,255,0.25); cursor: pointer; transition: all .4s ease;
+}
+.dot.on {
+  width: 28px; border-radius: 5px;
+  background: #d4af37; box-shadow: 0 0 14px rgba(212,175,55,0.5);
+}
+
+/* ── Hero Small Cards ── */
+.hero-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 210px 210px;
+  gap: 18px;
+  margin-bottom: 44px;
+}
+.hsc {
+  border-radius: 20px; overflow: hidden;
+  position: relative; display: flex; align-items: flex-end;
+  cursor: pointer; transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  border: 1px solid rgba(255,255,255,0.06);
+  background: #231a13;
+}
+.hsc:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 50px rgba(0,0,0,0.55);
+  border-color: rgba(212,175,55,0.3);
+}
+.hsc-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  transition: transform .65s cubic-bezier(0.4,0,0.2,1);
+}
+.hsc:hover .hsc-bg { transform: scale(1.1); }
+.hsc-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(15,23,42,0.9) 0%, transparent 75%);
+}
+.hsc-cnt { position: relative; z-index: 2; padding: 22px; }
+.hsc-t {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem; font-weight: 700; color: #fff;
+  margin-bottom: 4px; letter-spacing: 0.4px;
+}
+.hsc-s { font-size: .72rem; color: rgba(255,255,255,0.55); font-weight: 300; }
+.hsc-pill {
+  display: inline-block;
+  background: #d4af37; color: #080e1c;
+  font-size: .62rem; font-weight: 800;
+  padding: 4px 12px; border-radius: 7px;
+  margin-top: 9px; text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+/* ── Offers Strip ── */
+.ostrip {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px; margin-bottom: 52px;
+}
+.ofc {
+  border-radius: 22px; overflow: hidden; position: relative;
+  min-height: 185px; display: flex; align-items: flex-end;
+  cursor: pointer; transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  border: 1px solid rgba(212,175,55,0.15); background: #1a1410;
+}
+.ofc:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 28px 60px rgba(0,0,0,0.55);
+  border-color: rgba(212,175,55,0.4);
+}
+.ofc-bg {
+  position: absolute; inset: 0;
+  background-size: cover; background-position: center;
+  opacity: .35; filter: saturate(70%);
+  transition: transform 0.5s ease, opacity 0.4s ease;
+}
+.ofc:hover .ofc-bg { opacity: .55; transform: scale(1.06); }
+.ofc-ov {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, #1a1410 0%, transparent 85%);
+}
+.ofc-cnt { position: relative; z-index: 2; padding: 24px; }
+.ofc-cnt h4 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem; font-weight: 700;
+  color: #f0e6c8; margin-bottom: 5px;
+}
+.ofc-cnt p { font-size: .78rem; color: rgba(200,184,154,0.55); font-weight: 300; }
+.ofc-code {
+  display: inline-block; margin-top: 12px;
+  background: rgba(212,175,55,0.12); border: 1px solid rgba(212,175,55,0.4);
+  color: #d4af37; font-size: .68rem; font-weight: 800;
+  padding: 5px 14px; border-radius: 7px; letter-spacing: 1px;
+}
+
+/* ── Category Pills ── */
+.cpills { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 28px; }
+.cpill {
+  display: flex; align-items: center; gap: 9px;
+  background: rgba(255,255,255,0.03); backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 11px; padding: 10px 22px;
+  font-size: .83rem; font-weight: 600;
+  color: rgba(200,184,154,0.8); cursor: pointer; transition: all 0.3s;
+  text-decoration: none;
+}
+.cpill:hover, .cpill.on {
+  background: #d4af37; color: #080e1c;
+  border-color: #d4af37;
+  box-shadow: 0 8px 24px rgba(212,175,55,0.28);
+  transform: translateY(-2px);
+}
+
+/* ── Product Grid ── */
+.pgrid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 22px; margin-bottom: 64px;
+}
+.pcd {
+  border-radius: 20px; overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+  background: #231a13;
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+}
+.pcd::before {
+  content: '';
+  position: absolute; top: 0; left: 15%; right: 15%; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(212,175,55,0.2), transparent);
+  z-index: 2;
+}
+.pcd:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 28px 60px rgba(0,0,0,0.6);
+  border-color: rgba(212,175,55,0.3);
+}
+.pcd-img {
+  width: 100%; height: 215px;
+  position: relative; overflow: hidden; background: #1a1410;
+}
+.pcd-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform .65s cubic-bezier(0.4,0,0.2,1);
+  opacity: 0.85;
+}
+.pcd:hover .pcd-img img { transform: scale(1.1); opacity: 1; }
+.pcd-img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(8,14,28,0.65) 0%, transparent 55%);
+}
+.pcd-bdg {
+  position: absolute; top: 14px; left: 14px; z-index: 5;
+  background: rgba(212,175,55,0.9); color: #080e1c;
+  font-size: .62rem; font-weight: 800;
+  padding: 5px 11px; border-radius: 7px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.pcd-fav {
+  position: absolute; top: 14px; right: 14px; z-index: 5;
+  width: 35px; height: 35px; border-radius: 9px;
+  background: rgba(15,23,42,0.65); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex; align-items: center; justify-content: center;
+  color: #f87171; font-size: .95rem; cursor: pointer; transition: all 0.3s;
+}
+.pcd-fav:hover { background: rgba(239,68,68,0.15); border-color: #ef4444; transform: scale(1.1); }
+.pcd-body { padding: 18px 16px 16px; }
+.pcd-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.05rem; font-weight: 700;
+  color: #f0e6c8; margin-bottom: 4px; letter-spacing: 0.3px;
+}
+.pcd-qty { font-size: .73rem; color: rgba(200,184,154,0.45); margin-bottom: 12px; }
+.pcd-foot { display: flex; align-items: center; justify-content: space-between; }
+.pcd-pp { display: flex; align-items: baseline; gap: 7px; }
+.pcd-now {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem; font-weight: 800; color: #d4af37;
+}
+.pcd-old {
+  font-size: .78rem; color: rgba(200,184,154,0.3);
+  text-decoration: line-through; font-weight: 300;
+}
+.pcd-add {
+  width: 43px; height: 43px; border-radius: 11px;
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  color: #080e1c; border: none; font-size: 1.05rem;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s;
+  box-shadow: 0 6px 18px rgba(212,175,55,0.28);
+}
+.pcd-add:hover {
+  transform: scale(1.12) rotate(5deg);
+  box-shadow: 0 10px 28px rgba(212,175,55,0.45);
+}
+.pcd-add.added {
+  background: #1e293b; color: #d4af37;
+  border: 1px solid rgba(212,175,55,0.4);
+}

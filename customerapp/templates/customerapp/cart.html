@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Cart — Chidigram</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="{% static 'customerapp/css/cart.css' %}">
+  <style>
+    *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+    html, body {
+      min-height: 100vh;
+      background: #0d0a08;
+      background-image:
+        radial-gradient(ellipse 70% 55% at 0% 0%, rgba(212,175,55,0.05) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 50% at 100% 100%, rgba(43,29,22,0.12) 0%, transparent 50%);
+      font-family: 'Poppins', sans-serif;
+      color: #c8b89a;
+    }
+  </style>
+</head>
+<body>
+
+<!-- CART PAGE -->
+<div id="page-cart" class="page">
+<div class="cwrap">
+  <div class="pgnav">
+    <label class="back-btn" for="nav-home"><i class="fas fa-arrow-left"></i> Continue Shopping</label>
+    <div class="pg-ttl">My Cart 🛍️</div>
+  </div>
+
+  <div class="cart-layout">
+
+    <!-- CART ITEMS -->
+    <div class="cart-items-box">
+      {% for c in item %}
+      <!-- Item 1 - Organic Bananas -->
+      <div class="cart-item">
+        <img src="{{c.product.picture.url}}" alt="Bananas" class="cart-item-img" />
+        <div class="cart-item-info">
+          <div class="cart-item-name">{{c.product.product_name}}</div>
+          <div class="cart-item-unit">{{c.product.product_price}} | {{c.product.weight_unit}} | {{c.product.product_category}}</div>
+        </div>
+        <div class="qty-ctrl">
+          <span class="qty-btn">−</span>
+          <span class="qty-num">{{c.qty}}</span>
+          <span class="qty-btn">+</span>
+        </div>
+        <div class="cart-item-price">₹{{ c.product_price }}</div>
+      </div>
+      {% endfor %}
+   
+
+    </div>
+
+    <!-- ORDER SUMMARY -->
+    <div class="summary-box">
+      <div class="summary-title">Order Summary</div>
+      <div class="summary-row"><span>Items (5)</span><span>₹{{total_amount}}</span></div>
+      <div class="summary-row"><span>Discount <span class="disc-badge">WELCOME10</span></span><span class="green">-₹65</span></div>
+      <div class="summary-row"><span>Delivery</span><span class="green">FREE</span></div>
+      <div class="total-row"><span>Total</span><span>₹{{net_amount}}</span></div>
+      <div class="savings-note">🎉 You save ₹65 on this order!</div>
+      <label class="checkout-btn" for="nav-checkout">Proceed to Checkout →</label>
+      <div class="free-del-note">🚚 Free delivery on this order</div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&display=swap');
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --gold:       #d4af37;
+  --gold-dark:  #b8860b;
+  --gold-hover: #c9a227;
+  --gold-glow:  rgba(212,175,55,0.25);
+  --navy:       #0f172a;
+  --navy-deep:  #080e1c;
+  --navy-light: #1e293b;
+  --brown:      #2b1d16;
+  --brown-mid:  #3d2b1f;
+  --brown-light:#8d6e63;
+  --bg:         #0d0a08;
+  --bg-card:    #1a1410;
+  --text-head:  #f0e6c8;
+  --text-body:  #c8b89a;
+  --text-dim:   #7d6a55;
+  --border:     rgba(212,175,55,0.22);
+}
+
+/* ── Body ── */
+body {
+  font-family: 'Poppins', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: var(--bg);
+  background-image:
+    radial-gradient(ellipse 70% 55% at 15% 20%, rgba(212,175,55,0.07) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 85% 80%, rgba(43,29,22,0.2) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 70% at 50% 50%, rgba(15,23,42,0.5) 0%, transparent 70%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient orbs */
+body::before {
+  content: '';
+  position: fixed; top: -80px; left: -80px;
+  width: 380px; height: 380px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,175,55,0.09), transparent 70%);
+  pointer-events: none;
+  animation: orbDrift 10s ease-in-out infinite alternate;
+}
+body::after {
+  content: '';
+  position: fixed; bottom: -70px; right: -50px;
+  width: 300px; height: 300px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(43,29,22,0.18), transparent 70%);
+  pointer-events: none;
+  animation: orbDrift 14s ease-in-out infinite alternate-reverse;
+}
+@keyframes orbDrift {
+  from { transform:translate(0,0) scale(1); }
+  to   { transform:translate(16px,16px) scale(1.06); }
+}
+
+/* ── Wrapper ── */
+.login-wrapper {
+  width: 100%; max-width: 400px;
+  position: relative; z-index: 2;
+  animation: riseUp 0.55s cubic-bezier(0.22,1,0.36,1) both;
+}
+@keyframes riseUp {
+  from { opacity:0; transform:translateY(24px) scale(0.98); }
+  to   { opacity:1; transform:translateY(0) scale(1); }
+}
+
+/* ── Card ── */
+.login-card {
+  background: #1a1410;
+  border: 1px solid rgba(212,175,55,0.28);
+  border-radius: 24px;
+  padding: 40px 34px 36px;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow:
+    0 24px 60px rgba(0,0,0,0.7),
+    0 0 0 1px rgba(255,255,255,0.04),
+    inset 0 1px 0 rgba(212,175,55,0.1);
+  position: relative; overflow: hidden;
+}
+.login-card::before {
+  content: '';
+  position: absolute; top: 0; left: 12%; right: 12%;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, #d4af37, transparent);
+  opacity: 0.7;
+}
+.login-card::after {
+  content: '';
+  position: absolute; bottom: 0; left: 0; right: 0; top: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(212,175,55,0.04), transparent);
+  pointer-events: none;
+}
+
+/* ── Badge ── */
+.badge-secure {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(212,175,55,0.1); border: 1px solid rgba(212,175,55,0.3);
+  border-radius: 20px; padding: 5px 13px;
+  font-size: 10px; font-weight: 700;
+  color: #d4af37; letter-spacing: 0.09em;
+  text-transform: uppercase; margin-bottom: 20px;
+}
+.badge-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #d4af37; box-shadow: 0 0 8px #d4af37;
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink {
+  0%,100% { opacity:1; }
+  50%      { opacity:0.25; }
+}
+
+/* ── Titles ── */
+.login-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; font-weight: 800;
+  color: #f0e6c8; letter-spacing: -0.4px;
+  margin-bottom: 5px; line-height: 1.2;
+}
+.login-sub {
+  font-size: 13px; color: rgba(200,184,154,0.55);
+  margin-bottom: 30px; font-weight: 400;
+}
+
+/* ── Alert boxes ── */
+.alert-success {
+  background: rgba(16,185,129,0.08);
+  border: 1px solid rgba(16,185,129,0.22);
+  border-radius: 11px; color: #34d399;
+  font-size: 13px; font-weight: 500;
+  padding: 11px 15px; margin-bottom: 20px;
+  display: flex; align-items: center; gap: 8px;
+}
+.alert-success::before { content:'✓'; font-weight:800; color:#10b981; }
+
+.alert-danger-box {
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.22);
+  border-radius: 11px; color: #f87171;
+  font-size: 13px; font-weight: 500;
+  padding: 11px 15px; margin-bottom: 20px;
+}
+
+/* ── Input Fields ── */
+.input-field { margin-bottom: 18px; }
+.input-field label {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 10px; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; color: rgba(200,184,154,0.7);
+  margin-bottom: 8px;
+}
+.input-field label i { font-size: 10px; color: #d4af37; }
+
+.input-wrap { position: relative; }
+.input-icon {
+  position: absolute; left: 14px; top: 50%;
+  transform: translateY(-50%);
+  color: rgba(200,184,154,0.4); font-size: 13px; pointer-events: none;
+}
+
+.input-field input {
+  width: 100%; height: 50px;
+  padding: 0 16px 0 42px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px; color: #f0e6c8;
+  transition: all 0.25s; outline: none;
+}
+.input-field input::placeholder { color: rgba(200,184,154,0.3); }
+.input-field input:hover { border-color: rgba(212,175,55,0.3); background: rgba(255,255,255,0.06); }
+.input-field input:focus {
+  border-color: rgba(212,175,55,0.55);
+  background: rgba(255,255,255,0.07);
+  box-shadow: 0 0 0 4px rgba(212,175,55,0.1), 0 0 20px rgba(212,175,55,0.08);
+}
+
+/* ── Meta Row ── */
+.meta-row {
+  display: flex; justify-content: space-between;
+  align-items: center; margin: 6px 0 24px;
+}
+.remember-label {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 12px; color: rgba(200,184,154,0.55); cursor: pointer;
+}
+.remember-label input[type="checkbox"] {
+  width: 14px; height: 14px;
+  accent-color: #d4af37; cursor: pointer;
+}
+.forgot-link {
+  font-size: 12px; color: #d4af37;
+  font-weight: 600; text-decoration: none; transition: all 0.2s;
+}
+.forgot-link:hover { color: #f0e6c8; text-shadow: 0 0 10px rgba(212,175,55,0.4); }
+
+/* ── Login Button ── */
+.login-btn {
+  width: 100%; height: 50px; border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #d4af37, #b8860b);
+  color: #080e1c;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(212,175,55,0.3), 0 2px 4px rgba(0,0,0,0.2);
+  position: relative; overflow: hidden;
+  transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+}
+.login-btn::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.18), transparent 60%);
+  pointer-events: none;
+}
+.login-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 36px rgba(212,175,55,0.45);
+  filter: brightness(1.06);
+}
+.login-btn:active { transform: translateY(0); }
+
+/* ── Footer / Register Hint ── */
+.register-hint {
+  text-align: center; margin-top: 26px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.07);
+  font-size: 12.5px; color: rgba(200,184,154,0.5);
+}
+.register-hint a {
+  color: #d4af37; font-weight: 700;
+  text-decoration: none; transition: all 0.2s;
+}
+.register-hint a:hover { color: #f0e6c8; text-decoration: underline; }
+
+/* ── Form Header (Forgot/Reset pages) ── */
+.form-header {
+  display: flex; align-items: center; gap: 14px; margin-bottom: 28px;
+}
+.header-icon {
+  width: 46px; height: 46px; border-radius: 13px;
+  background: rgba(212,175,55,0.1);
+  border: 1px solid rgba(212,175,55,0.3);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.header-icon i { font-size: 18px; color: #d4af37; }
+.header-text h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 25px; font-weight: 800;
+  color: #f0e6c8; letter-spacing: -0.4px;
+  line-height: 1; margin: 0;
+}
+.header-text p { font-size: 12.5px; color: rgba(200,184,154,0.5); margin-top: 4px; }
+
+/* ── Responsive ── */
+@media (max-width: 480px) {
+  .login-card { padding: 28px 20px 30px; border-radius: 18px; }
+  .login-wrapper { max-width: 100%; }
+}

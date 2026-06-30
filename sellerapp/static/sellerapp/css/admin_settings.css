@@ -1,0 +1,28 @@
+/* ── SETTINGS — Dark Premium Theme ── */
+#settings-section h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.08rem; font-weight: 800;
+  color: var(--txt); margin-bottom: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(212,175,55,0.25);
+  display: flex; align-items: center; gap: 10px;
+}
+#settings-section h3 i { color: var(--gold); }
+
+#settings-section input {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.09);
+  color: var(--txt); padding: 11px 15px;
+  border-radius: var(--r2);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem; font-weight: 500;
+  outline: none; width: 100%; margin-bottom: 4px; transition: var(--tf);
+}
+#settings-section input::placeholder { color: var(--txt4); }
+#settings-section input:hover { border-color: rgba(212,175,55,0.25); background: rgba(255,255,255,0.07); }
+#settings-section input:focus {
+  border-color: rgba(212,175,55,0.5);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.1), 0 0 18px rgba(212,175,55,0.06);
+  background: rgba(255,255,255,0.08);
+}
